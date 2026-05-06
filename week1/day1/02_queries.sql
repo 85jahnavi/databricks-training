@@ -211,3 +211,136 @@ INNER JOIN Employee e ON d.department_id = e.department_id
 GROUP BY d.department_id, d.name
 ORDER BY AVG(e.salary) DESC 
 LIMIT 1;
+-- Query 46: Highest salary employee
+SELECT * FROM Employee
+WHERE salary = (SELECT MAX(salary) FROM Employee);
+
+-- Query 47: Salary above average
+SELECT * FROM Employee
+WHERE salary > (SELECT AVG(salary) FROM Employee);
+
+-- Query 48: Second highest salary
+SELECT DISTINCT salary
+FROM Employee
+ORDER BY salary DESC
+LIMIT 1 OFFSET 1;
+
+-- Query 49: Dept with most employees
+SELECT department_id
+FROM Employee
+GROUP BY department_id
+ORDER BY COUNT(*) DESC
+LIMIT 1;
+
+-- Query 50: Salary > dept avg
+SELECT * FROM Employee e
+WHERE salary > (
+    SELECT AVG(salary)
+    FROM Employee
+    WHERE department_id = e.department_id
+);
+
+
+-- Query 51: 3rd highest salary
+SELECT DISTINCT salary
+FROM Employee
+ORDER BY salary DESC
+LIMIT 1 OFFSET 2;
+
+-- Query 52: Older than all HR employees
+SELECT * FROM Employee
+WHERE age > ALL (
+    SELECT age FROM Employee
+    WHERE department_id = (
+        SELECT department_id FROM Department WHERE name = 'HR'
+    )
+);
+
+-- Query 53: Dept avg salary > 55000
+SELECT department_id
+FROM Employee
+GROUP BY department_id
+HAVING AVG(salary) > 55000;
+
+-- Query 54: Employees in dept with ≥2 projects
+SELECT * FROM Employee
+WHERE department_id IN (
+    SELECT department_id
+    FROM Project
+    GROUP BY department_id
+    HAVING COUNT(*) >= 2
+);
+
+-- Query 55: Same hire date as Jane Smith
+SELECT * FROM Employee
+WHERE hire_date = (
+    SELECT hire_date FROM Employee WHERE name = 'Jane Smith'
+);
+
+
+-- Query 56: Total salary in 2020
+SELECT SUM(salary)
+FROM Employee
+WHERE YEAR(hire_date) = 2020;
+
+-- Query 57: Avg salary per dept (desc)
+SELECT department_id, AVG(salary) AS avg_salary
+FROM Employee
+GROUP BY department_id
+ORDER BY avg_salary DESC;
+
+-- Query 58: Dept >1 emp and avg salary >55000
+SELECT department_id
+FROM Employee
+GROUP BY department_id
+HAVING COUNT(*) > 1 AND AVG(salary) > 55000;
+
+-- Query 59: Last 2 years employees ordered
+SELECT * FROM Employee
+WHERE hire_date >= DATE_SUB(CURDATE(), INTERVAL 2 YEAR)
+ORDER BY hire_date;
+
+-- Query 60: Count + avg salary (dept >2 emp)
+SELECT department_id, COUNT(*) AS total, AVG(salary) AS avg_salary
+FROM Employee
+GROUP BY department_id
+HAVING COUNT(*) > 2;
+
+
+-- Query 61: Salary > dept avg
+SELECT name, salary FROM Employee e
+WHERE salary > (
+    SELECT AVG(salary)
+    FROM Employee
+    WHERE department_id = e.department_id
+);
+
+-- Query 62: Same hire date as oldest employee
+SELECT name FROM Employee
+WHERE hire_date = (
+    SELECT hire_date FROM Employee ORDER BY age DESC LIMIT 1
+);
+
+-- Query 63: Dept with project count
+SELECT d.name, COUNT(p.project_id) AS project_count
+FROM Department d
+LEFT JOIN Project p ON d.department_id = p.department_id
+GROUP BY d.name
+ORDER BY project_count;
+
+-- Query 64: Highest salary in each dept
+SELECT e.name, e.salary
+FROM Employee e
+WHERE salary = (
+    SELECT MAX(salary)
+    FROM Employee
+    WHERE department_id = e.department_id
+);
+
+-- Query 65: Age > dept avg age
+SELECT name, salary FROM Employee e
+WHERE age > (
+    SELECT AVG(age)
+    FROM Employee
+    WHERE department_id = e.department_id
+);
