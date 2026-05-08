@@ -1,0 +1,653 @@
+#SELECT
+-- 1. Display all employee details
+
+| emp_id | emp_name | department | salary | city      | experience |
+| ------ | -------- | ---------- | ------ | --------- | ---------- |
+| 101    | Rahul    | IT         | 75000  | Hyderabad | 5          |
+| 102    | Anjali   | HR         | 45000  | Chennai   | 3          |
+| 103    | Kiran    | IT         | 82000  | Bangalore | 6          |
+| 104    | Sneha    | Finance    | 67000  | Hyderabad | 4          |
+| 105    | Aman     | HR         | 39000  | Pune      | 2          |
+| 106    | Ravi     | Finance    | 91000  | Mumbai    | 8          |
+| 107    | Divya    | IT         | 55000  | Chennai   | 3          |
+| 108    | Meena    | Sales      | 48000  | Bangalore | 2          |
+| 109    | Arjun    | Sales      | 61000  | Hyderabad | 5          |
+| 110    | Pooja    | IT         | 73000  | Mumbai    | 4          |
+| 111    | Vikas    | HR         | 52000  | Pune      | 3          |
+| 112    | Nisha    | Finance    | 88000  | Bangalore | 7          |
+| 113    | Tarun    | Sales      | 46000  | Chennai   | 2          |
+| 114    | Kavya    | IT         | 97000  | Hyderabad | 9          |
+| 115    | Manoj    | Finance    | 58000  | Mumbai    | 4          |
+
+-- 2. Display only employee names and salaries
+
+| emp_name | salary |
+| -------- | ------ |
+| Rahul    | 75000  |
+| Anjali   | 45000  |
+| Kiran    | 82000  |
+| Sneha    | 67000  |
+| Aman     | 39000  |
+| Ravi     | 91000  |
+| Divya    | 55000  |
+| Meena    | 48000  |
+| Arjun    | 61000  |
+| Pooja    | 73000  |
+| Vikas    | 52000  |
+| Nisha    | 88000  |
+| Tarun    | 46000  |
+| Kavya    | 97000  |
+| Manoj    | 58000  |
+
+-- 3. Display employee names and departments
+
+| emp_name | department |
+| -------- | ---------- |
+| Rahul    | IT         |
+| Anjali   | HR         |
+| Kiran    | IT         |
+| Sneha    | Finance    |
+| Aman     | HR         |
+| Ravi     | Finance    |
+| Divya    | IT         |
+| Meena    | Sales      |
+| Arjun    | Sales      |
+| Pooja    | IT         |
+| Vikas    | HR         |
+| Nisha    | Finance    |
+| Tarun    | Sales      |
+| Kavya    | IT         |
+| Manoj    | Finance    |
+
+-- 4. Display all employees from the IT department
+
+| emp_id | emp_name | department | salary | city      | experience |
+| ------ | -------- | ---------- | ------ | --------- | ---------- |
+| 101    | Rahul    | IT         | 75000  | Hyderabad | 5          |
+| 103    | Kiran    | IT         | 82000  | Bangalore | 6          |
+| 107    | Divya    | IT         | 55000  | Chennai   | 3          |
+| 110    | Pooja    | IT         | 73000  | Mumbai    | 4          |
+| 114    | Kavya    | IT         | 97000  | Hyderabad | 9          |
+
+-- 5. Display employee names and experience
+
+| emp_name | experience |
+| -------- | ---------- |
+| Rahul    | 5          |
+| Anjali   | 3          |
+| Kiran    | 6          |
+| Sneha    | 4          |
+| Aman     | 2          |
+| Ravi     | 8          |
+| Divya    | 3          |
+| Meena    | 2          |
+| Arjun    | 5          |
+| Pooja    | 4          |
+| Vikas    | 3          |
+| Nisha    | 7          |
+| Tarun    | 2          |
+| Kavya    | 9          |
+| Manoj    | 4          |
+
+----------------------------
+
+# WHERE
+-- 1. Find employees with salary greater than 70000
+
+| emp_name | salary |
+| -------- | ------ |
+| Rahul    | 75000  |
+| Kiran    | 82000  |
+| Ravi     | 91000  |
+| Pooja    | 73000  |
+| Nisha    | 88000  |
+| Kavya    | 97000  |
+
+-- 2. Find employees working in Hyderabad
+
+| emp_name | city      |
+| -------- | --------- |
+| Rahul    | Hyderabad |
+| Sneha    | Hyderabad |
+| Arjun    | Hyderabad |
+| Kavya    | Hyderabad |
+
+-- 3. Find employees with experience less than 4 years
+
+| emp_name | experience |
+| -------- | ---------- |
+| Anjali   | 3          |
+| Aman     | 2          |
+| Divya    | 3          |
+| Meena    | 2          |
+| Vikas    | 3          |
+| Tarun    | 2          |
+
+-- 4. Find employees from Finance department
+
+| emp_name | department |
+| -------- | ---------- |
+| Sneha    | Finance    |
+| Ravi     | Finance    |
+| Nisha    | Finance    |
+| Manoj    | Finance    |
+
+-- 5. Find employees whose salary is equal to 52000
+
+| emp_name | salary |
+| -------- | ------ |
+| Vikas    | 52000  |
+
+----------------------------
+
+# GROUP BY
+-- 1. Find total salary department-wise
+
+| department | total_salary |
+| ---------- | ------------ |
+| IT         | 382000       |
+| HR         | 136000       |
+| Finance    | 304000       |
+| Sales      | 155000       |
+
+-- 2. Find average salary in each department
+
+| department | avg_salary |
+| ---------- | ---------- |
+| IT         | 76400      |
+| HR         | 45333.33   |
+| Finance    | 76000      |
+| Sales      | 51666.67   |
+
+-- 3. Count employees in each city
+
+| city      | employee_count |
+| --------- | -------------- |
+| Hyderabad | 4              |
+| Chennai   | 3              |
+| Bangalore | 3              |
+| Pune      | 2              |
+| Mumbai    | 3              |
+
+-- 4. Find maximum salary in each department
+
+| department | max_salary |
+| ---------- | ---------- |
+| IT         | 97000      |
+| HR         | 52000      |
+| Finance    | 91000      |
+| Sales      | 61000      |
+
+-- 5. Find minimum experience department-wise
+SELECT department, MIN(experience) AS min_experience
+FROM Employees
+GROUP BY department;
+```
+
+| department | min_experience |
+| ---------- | -------------- |
+| IT         | 3              |
+| HR         | 2              |
+| Finance    | 4              |
+| Sales      | 2              |
+
+-------------------------------
+
+# HAVING
+-- 1. Find departments having more than 3 employees
+
+| department | employee_count |
+| ---------- | -------------- |
+| IT         | 5              |
+| Finance    | 4              |
+
+-- 2. Find departments where average salary is greater than 60000
+
+| department | avg_salary |
+| ---------- | ---------- |
+| IT         | 76400      |
+| Finance    | 76000      |
+
+-- 3. Find cities having more than 2 employees
+
+| city      | employee_count |
+| --------- | -------------- |
+| Hyderabad | 4              |
+| Chennai   | 3              |
+| Bangalore | 3              |
+| Mumbai    | 3              |
+
+-- 4. Find departments where total salary is greater than 200000
+
+| department | total_salary |
+| ---------- | ------------ |
+| IT         | 382000       |
+| Finance    | 304000       |
+
+-- 5. Find departments where maximum salary is above 90000
+
+| department | max_salary |
+| ---------- | ---------- |
+| IT         | 97000      |
+| Finance    | 91000      |
+
+-------------------------------
+
+# TOP
+
+-- 1. Display top 5 highest paid employees
+
+| emp_name | salary |
+| -------- | ------ |
+| Kavya    | 97000  |
+| Ravi     | 91000  |
+| Nisha    | 88000  |
+| Kiran    | 82000  |
+| Rahul    | 75000  |
+
+-- 2. Display top 3 employees with highest experience
+
+| emp_name | experience |
+| -------- | ---------- |
+| Kavya    | 9          |
+| Ravi     | 8          |
+| Nisha    | 7          |
+
+-- 3. Display top 2 salaries from Finance department
+
+| emp_name | salary |
+| -------- | ------ |
+| Ravi     | 91000  |
+| Nisha    | 88000  |
+
+-- 4. Display top 4 employees from Hyderabad
+
+| emp_name | city      |
+| -------- | --------- |
+| Rahul    | Hyderabad |
+| Sneha    | Hyderabad |
+| Arjun    | Hyderabad |
+| Kavya    | Hyderabad |
+
+-- 5. Display top 1 highest salary employee
+
+| emp_name | salary |
+| -------- | ------ |
+| Kavya    | 97000  |
+
+--------------------------------
+
+# DISTINCT
+
+-- 1. Display distinct department names
+
+| department |
+| ---------- |
+| IT         |
+| HR         |
+| Finance    |
+| Sales      |
+
+-- 2. Display distinct city names
+
+| city      |
+| --------- |
+| Hyderabad |
+| Chennai   |
+| Bangalore |
+| Pune      |
+| Mumbai    |
+
+-- 3. Display distinct salary values
+
+| salary |
+| ------ |
+| 75000  |
+| 45000  |
+| 82000  |
+| 67000  |
+| 39000  |
+| 91000  |
+| 55000  |
+| 48000  |
+| 61000  |
+| 73000  |
+| 52000  |
+| 88000  |
+| 46000  |
+| 97000  |
+| 58000  |
+
+-- 4. Display distinct combinations of department and city
+
+| department | city      |
+| ---------- | --------- |
+| IT         | Hyderabad |
+| HR         | Chennai   |
+| IT         | Bangalore |
+| Finance    | Hyderabad |
+| HR         | Pune      |
+| Finance    | Mumbai    |
+| IT         | Chennai   |
+| Sales      | Bangalore |
+| Sales      | Hyderabad |
+| IT         | Mumbai    |
+| Finance    | Bangalore |
+| Sales      | Chennai   |
+
+-- 5. Display distinct experience values
+
+| experience |
+| ---------- |
+| 5          |
+| 3          |
+| 6          |
+| 4          |
+| 2          |
+| 8          |
+| 7          |
+| 9          |
+
+-------------------------------
+
+# COMPARISON OPERATORS
+
+-- 1. Find employees with salary >= 80000
+
+| emp_name | salary |
+| -------- | ------ |
+| Kiran    | 82000  |
+| Ravi     | 91000  |
+| Nisha    | 88000  |
+| Kavya    | 97000  |
+
+-- 2. Find employees with experience <= 3
+
+| emp_name | experience |
+| -------- | ---------- |
+| Anjali   | 3          |
+| Aman     | 2          |
+| Divya    | 3          |
+| Meena    | 2          |
+| Vikas    | 3          |
+| Tarun    | 2          |
+
+-- 3. Find employees whose salary <> 45000
+
+| emp_name | salary |
+| -------- | ------ |
+| Rahul    | 75000  |
+| Kiran    | 82000  |
+| Sneha    | 67000  |
+| Aman     | 39000  |
+| Ravi     | 91000  |
+| Divya    | 55000  |
+| Meena    | 48000  |
+| Arjun    | 61000  |
+| Pooja    | 73000  |
+| Vikas    | 52000  |
+| Nisha    | 88000  |
+| Tarun    | 46000  |
+| Kavya    | 97000  |
+| Manoj    | 58000  |
+
+-- 4. Find employees with salary < 50000
+
+| emp_name | salary |
+| -------- | ------ |
+| Anjali   | 45000  |
+| Aman     | 39000  |
+| Meena    | 48000  |
+| Tarun    | 46000  |
+
+-- 5. Find employees with experience > 5
+
+| emp_name | experience |
+| -------- | ---------- |
+| Kiran    | 6          |
+| Ravi     | 8          |
+| Nisha    | 7          |
+| Kavya    | 9          |
+
+--------------------------------------
+
+# LOGICAL OPERATORS
+
+-- 1. Find employees from IT department AND salary greater than 70000
+
+| emp_name | salary |
+| -------- | ------ |
+| Rahul    | 75000  |
+| Kiran    | 82000  |
+| Pooja    | 73000  |
+| Kavya    | 97000  |
+
+-- 2. Find employees from Hyderabad OR Bangalore
+
+| emp_name | city      |
+| -------- | --------- |
+| Rahul    | Hyderabad |
+| Kiran    | Bangalore |
+| Sneha    | Hyderabad |
+| Meena    | Bangalore |
+| Arjun    | Hyderabad |
+| Nisha    | Bangalore |
+| Kavya    | Hyderabad |
+
+-- 3. Find employees from HR department AND experience less than 3
+
+| emp_name | experience |
+| -------- | ---------- |
+| Aman     | 2          |
+
+-- 4. Find employees with salary greater than 60000 OR experience greater than 6
+
+| emp_name | salary |
+| -------- | ------ |
+| Rahul    | 75000  |
+| Kiran    | 82000  |
+| Sneha    | 67000  |
+| Ravi     | 91000  |
+| Arjun    | 61000  |
+| Pooja    | 73000  |
+| Nisha    | 88000  |
+| Kavya    | 97000  |
+
+-- 5. Find employees NOT from Sales department
+
+| emp_name | department |
+| -------- | ---------- |
+| Rahul    | IT         |
+| Anjali   | HR         |
+| Kiran    | IT         |
+| Sneha    | Finance    |
+| Aman     | HR         |
+| Ravi     | Finance    |
+| Divya    | IT         |
+| Pooja    | IT         |
+| Vikas    | HR         |
+| Nisha    | Finance    |
+| Kavya    | IT         |
+| Manoj    | Finance    |
+
+-----------------------------
+
+# IN AND NOT IN
+
+-- 1. Find employees working in ('Hyderabad', 'Mumbai')
+
+| emp_name | city      |
+| -------- | --------- |
+| Rahul    | Hyderabad |
+| Sneha    | Hyderabad |
+| Ravi     | Mumbai    |
+| Arjun    | Hyderabad |
+| Pooja    | Mumbai    |
+| Kavya    | Hyderabad |
+| Manoj    | Mumbai    |
+
+-- 2. Find employees whose department IN ('IT', 'Finance')
+
+| emp_name | department |
+| -------- | ---------- |
+| Rahul    | IT         |
+| Kiran    | IT         |
+| Sneha    | Finance    |
+| Ravi     | Finance    |
+| Divya    | IT         |
+| Pooja    | IT         |
+| Nisha    | Finance    |
+| Kavya    | IT         |
+| Manoj    | Finance    |
+
+-- 3. Find employees whose city NOT IN ('Chennai', 'Pune')
+
+| emp_name | city      |
+| -------- | --------- |
+| Rahul    | Hyderabad |
+| Kiran    | Bangalore |
+| Sneha    | Hyderabad |
+| Ravi     | Mumbai    |
+| Meena    | Bangalore |
+| Arjun    | Hyderabad |
+| Pooja    | Mumbai    |
+| Nisha    | Bangalore |
+| Kavya    | Hyderabad |
+| Manoj    | Mumbai    |
+
+-- 4. Find employees whose salary IN (45000, 75000, 91000)
+
+| emp_name | salary |
+| -------- | ------ |
+| Rahul    | 75000  |
+| Anjali   | 45000  |
+| Ravi     | 91000  |
+
+-- 5. Find employees whose department NOT IN ('HR', 'Sales')
+
+| emp_name | department |
+| -------- | ---------- |
+| Rahul    | IT         |
+| Kiran    | IT         |
+| Sneha    | Finance    |
+| Ravi     | Finance    |
+| Divya    | IT         |
+| Pooja    | IT         |
+| Nisha    | Finance    |
+| Kavya    | IT         |
+| Manoj    | Finance    |
+
+----------------------------------
+
+# BETWEEN
+
+-- 1. Find employees with salary BETWEEN 50000 AND 80000
+
+| emp_name | salary |
+| -------- | ------ |
+| Rahul    | 75000  |
+| Sneha    | 67000  |
+| Divya    | 55000  |
+| Arjun    | 61000  |
+| Pooja    | 73000  |
+| Vikas    | 52000  |
+| Manoj    | 58000  |
+
+-- 2. Find employees with experience BETWEEN 3 AND 6
+
+| emp_name | experience |
+| -------- | ---------- |
+| Rahul    | 5          |
+| Anjali   | 3          |
+| Kiran    | 6          |
+| Sneha    | 4          |
+| Divya    | 3          |
+| Arjun    | 5          |
+| Pooja    | 4          |
+| Vikas    | 3          |
+| Manoj    | 4          |
+
+-- 3. Find employees whose emp_id BETWEEN 105 AND 112
+
+| emp_name | emp_id |
+| -------- | ------ |
+| Aman     | 105    |
+| Ravi     | 106    |
+| Divya    | 107    |
+| Meena    | 108    |
+| Arjun    | 109    |
+| Pooja    | 110    |
+| Vikas    | 111    |
+| Nisha    | 112    |
+
+-- 4. Find employees with salary NOT BETWEEN 40000 AND 60000
+
+| emp_name | salary |
+| -------- | ------ |
+| Rahul    | 75000  |
+| Kiran    | 82000  |
+| Aman     | 39000  |
+| Ravi     | 91000  |
+| Arjun    | 61000  |
+| Nisha    | 88000  |
+| Kavya    | 97000  |
+
+-- 5. Find employees with experience BETWEEN 2 AND 4
+
+| emp_name | experience |
+| -------- | ---------- |
+| Anjali   | 3          |
+| Sneha    | 4          |
+| Aman     | 2          |
+| Divya    | 3          |
+| Meena    | 2          |
+| Pooja    | 4          |
+| Vikas    | 3          |
+| Tarun    | 2          |
+| Manoj    | 4          |
+
+--------------------------------------
+
+# LIKE OPERATOR
+
+-- 1. Find employees whose names start with 'R'
+
+| emp_name |
+| -------- |
+| Rahul    |
+| Ravi     |
+
+-- 2. Find employees whose names end with 'a'
+
+| emp_name |
+| -------- |
+| Sneha    |
+| Divya    |
+| Meena    |
+| Pooja    |
+| Kavya    |
+
+-- 3. Find employees whose names contain 'v'
+
+| emp_name |
+| -------- |
+| Divya    |
+| Ravi     |
+| Vikas    |
+| Kavya    |
+
+-- 4. Find employees whose city starts with 'B'
+
+| emp_name | city      |
+| -------- | --------- |
+| Kiran    | Bangalore |
+| Meena    | Bangalore |
+| Nisha    | Bangalore |
+
+-- 5. Find employees whose department ends with 's'
+
+| department |
+| ---------- |
+| Sales      |
+
+--------------------------------------------------------
