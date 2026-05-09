@@ -40,6 +40,7 @@ This section focuses on strengthening SQL JOIN concepts using relational databas
 ## 📁 File Structure
 
 day3/
+│
 ├── schema.sql
 ├── queries.sql
 └── outputs.txt
