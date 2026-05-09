@@ -1,0 +1,151 @@
+# 1. Students and Their Enrolled Courses
+
+student_id | student_name   | course_name
+-----------|----------------|----------------------
+1          | Alice Johnson  | SQL Basics
+1          | Alice Johnson  | Python Fundamentals
+2          | Bob Smith      | SQL Basics
+3          | Charlie Brown  | Cloud Computing
+4          | Diana Prince   | Cyber Security
+5          | Ethan Hunt     | NULL
+6          | Fiona Green    | NULL
+
+
+# 2. Courses With No Students Enrolled
+
+course_id | course_name
+----------|-------------------
+103       | Data Analytics
+105       | Machine Learning
+
+
+# 3. Instructors and Courses They Teach
+
+instructor_id | instructor_name | course_name
+--------------|-----------------|----------------------
+1             | Sarah Connor    | SQL Basics
+2             | Michael Scott   | Python Fundamentals
+3             | Tony Stark      | Cloud Computing
+4             | Bruce Wayne     | Cyber Security
+
+
+# 4. Courses Without Assigned Instructors
+
+course_id | course_name
+----------|-------------------
+103       | Data Analytics
+105       | Machine Learning
+
+
+# 5. Students and Enrollment Information Using RIGHT JOIN
+
+student_id | student_name   | enrollment_id | course_id | enrollment_date
+-----------|----------------|---------------|-----------|----------------
+1          | Alice Johnson  | 1             | 101       | 2024-01-10
+1          | Alice Johnson  | 2             | 102       | 2024-01-12
+2          | Bob Smith      | 3             | 101       | 2024-01-15
+3          | Charlie Brown  | 4             | 104       | 2024-01-20
+4          | Diana Prince   | 5             | 106       | 2024-01-25
+5          | Ethan Hunt     | NULL          | NULL      | NULL
+6          | Fiona Green    | NULL          | NULL      | NULL
+
+
+# 6. Students Not Enrolled in Any Course
+
+student_id | student_name
+-----------|---------------
+5          | Ethan Hunt
+6          | Fiona Green
+
+
+# 7. FULL OUTER JOIN Between Students and Enrollments
+
+student_id | student_name   | enrollment_id | course_id | enrollment_date
+-----------|----------------|---------------|-----------|----------------
+1          | Alice Johnson  | 1             | 101       | 2024-01-10
+1          | Alice Johnson  | 2             | 102       | 2024-01-12
+2          | Bob Smith      | 3             | 101       | 2024-01-15
+3          | Charlie Brown  | 4             | 104       | 2024-01-20
+4          | Diana Prince   | 5             | 106       | 2024-01-25
+5          | Ethan Hunt     | NULL          | NULL      | NULL
+6          | Fiona Green    | NULL          | NULL      | NULL
+
+
+# 8. Courses Never Appearing in Enrollments
+
+course_id | course_name
+----------|-------------------
+103       | Data Analytics
+105       | Machine Learning
+
+
+# 9. FULL OUTER JOIN Between Instructors and Courses
+
+instructor_id | instructor_name | course_id | course_name
+--------------|-----------------|-----------|----------------------
+1             | Sarah Connor    | 101       | SQL Basics
+2             | Michael Scott   | 102       | Python Fundamentals
+3             | Tony Stark      | 104       | Cloud Computing
+4             | Bruce Wayne     | 106       | Cyber Security
+NULL          | NULL            | 103       | Data Analytics
+NULL          | NULL            | 105       | Machine Learning
+
+
+# 10. Student, Course, and Instructor Report
+
+student_name   | course_name          | instructor_name
+---------------|----------------------|----------------
+Alice Johnson  | SQL Basics           | Sarah Connor
+Alice Johnson  | Python Fundamentals  | Michael Scott
+Bob Smith      | SQL Basics           | Sarah Connor
+Charlie Brown  | Cloud Computing      | Tony Stark
+Diana Prince   | Cyber Security       | Bruce Wayne
+Ethan Hunt     | NULL                 | NULL
+Fiona Green    | NULL                 | NULL
+
+
+# Bonus Challenge — Every Student and Every Course
+
+student_name   | course_name
+---------------|----------------------
+Alice Johnson  | SQL Basics
+Alice Johnson  | Python Fundamentals
+Alice Johnson  | Data Analytics
+Alice Johnson  | Cloud Computing
+Alice Johnson  | Machine Learning
+Alice Johnson  | Cyber Security
+
+Bob Smith      | SQL Basics
+Bob Smith      | Python Fundamentals
+Bob Smith      | Data Analytics
+Bob Smith      | Cloud Computing
+Bob Smith      | Machine Learning
+Bob Smith      | Cyber Security
+
+Charlie Brown  | SQL Basics
+Charlie Brown  | Python Fundamentals
+Charlie Brown  | Data Analytics
+Charlie Brown  | Cloud Computing
+Charlie Brown  | Machine Learning
+Charlie Brown  | Cyber Security
+
+Diana Prince   | SQL Basics
+Diana Prince   | Python Fundamentals
+Diana Prince   | Data Analytics
+Diana Prince   | Cloud Computing
+Diana Prince   | Machine Learning
+Diana Prince   | Cyber Security
+
+Ethan Hunt     | SQL Basics
+Ethan Hunt     | Python Fundamentals
+Ethan Hunt     | Data Analytics
+Ethan Hunt     | Cloud Computing
+Ethan Hunt     | Machine Learning
+Ethan Hunt     | Cyber Security
+
+Fiona Green    | SQL Basics
+Fiona Green    | Python Fundamentals
+Fiona Green    | Data Analytics
+Fiona Green    | Cloud Computing
+Fiona Green    | Machine Learning
+Fiona Green    | Cyber Security
